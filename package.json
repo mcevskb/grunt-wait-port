@@ -1,0 +1,40 @@
+{
+  "name": "grunt-wait-port",
+  "version": "0.0.1",
+  "description": "Grunt task to run a server, wait for its port to open, then run another task.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:vintasoftware/grunt-wait-port.git"
+  },
+  "keywords": [
+    "port",
+    "network",
+    "grunt",
+    "gruntplugin"
+  ],
+  "author": {
+    "name": "Flávio Juvenal"
+  },
+  "license": "BSD",
+  "main": "grunt.js",
+  "bin": {
+    "grunt-wait-port": "bin/grunt-wait-port"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/vintasoftware/grunt-wait-port/issues"
+  },
+  "readme": "# grunt-wait-port\n\nGrunt task to run a server, wait for its port to open, then run another task.  \nWorks only on Unix-based systems.\n\n## Installation\n\nAdd the following to your `package.json`:\n\n```javascript\n  \"grunt-wait-port\": \"git+https://github.com/vintasoftware/grunt-wait-port.git\",\n```\n\nAdd the folloing to your `grunt.js`. Here, we assume you have two tasks defined, `run_server` and `run_tests`:\n\n```javascript\ngrunt.loadNpmTasks('grunt-wait-port');\n\ngrunt.initConfig({\n\n  //...\n\n  waitport: {\n    test: {\n      options: {\n        server: ['run_server'],\n        port: 3000,\n        other: ['run_tests']\n      }\n    }\n  }\n\n  //...\n\n});\n```\n\n\n## Shortcuts\n\nCreate shortcut tasks by giving common tasks easy names.\n\n```javascript\ngrunt.registerTask(\"test\", 'build waitport:test');\n```\n\n## Output\n\nBy default, waitport will ignore the output of `server` and will show the output of `other` task.  \nYou can override this by using the `stdioServer` and `stdioOther` options, which accept values according [node.js `child_process.spawn` stdio param](http://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)\n",
+  "readmeFilename": "README.md",
+  "_id": "grunt-wait-port@0.0.1",
+  "dist": {
+    "shasum": "8be05c44297439bdfb7feec093013539a19fc608"
+  },
+  "_resolved": "git://github.com/vintasoftware/grunt-wait-port#3de5005afc900f5c7d144fd38dc8a6ee0cbbfb19",
+  "_from": "grunt-wait-port@git://github.com/vintasoftware/grunt-wait-port"
+}
